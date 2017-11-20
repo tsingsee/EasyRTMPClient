@@ -1,9 +1,9 @@
 // EasyRTMPClientDemo.cpp : Defines the entry point for the console application.
 //
 #include <Windows.h>
-#include "../EasyRTMPClient/EasyRTMPClientAPI.h"
+#include "../include/EasyRTMPClientAPI.h"
 
-#pragma comment( lib, "../Debug/EasyRTMPClient.lib" )
+#pragma comment( lib, "../lib/EasyRTMPClient.lib" )
 #include <stdio.h>
 
 FILE * g_audio = NULL;
@@ -85,7 +85,6 @@ int Easy_APICALL RTMPDataCallBack(
 	return ret;
 }
 
-
 int main(int argc, char * argv[])
 {
 	void * rtmp = NULL;
@@ -93,7 +92,28 @@ int main(int argc, char * argv[])
 	const char * p = NULL;
 	char url[128] = {0};
 
+	if ( argc <= 2 )
+	{
+		goto _HELP;
+	}
+
+	p = getValueFromArray( argv, argc, "-h" );
+	if ( ( const char * )-1 == p )
+	{
+_HELP:
+		printf( "EasyRTMPClientDemo.exe -i <rtmp-url>\r\n" );
+		printf( "Help Mode: EasyRTMPClient.exe -h\r\n" );
+		printf( "rtmp-url: source rtmp address\r\n" );
+		printf( "For example: EasyRTMPClientDemo.exe -i rtmp://127.0.0.1/live/911\r\n" );
+		
+		return 0;
+	}
+
 	p = getValueFromArray( argv, argc, "-i" );
+	if ( NULL == p || ( const char * )-1 == p )
+	{
+		goto _HELP;
+	}
 
 	EasyRTMP_Init( &rtmp );
 	EasyRTMP_SetCallback( rtmp, RTMPDataCallBack );
@@ -124,6 +144,7 @@ const char * getValueFromArray( char ** arr, int size, const char * key )
 	{
 		if ( 0 == memcmp( key, arr[i], strlen( key ) + sizeof( char ) ) )
 		{
+			p = ( const char *  )-1;
 			if ( i + 1 < size )
 			{
 				p = arr[i + 1];
