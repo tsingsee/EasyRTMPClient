@@ -56,7 +56,7 @@ int Easy_APICALL RTMPDataCallBack(
 		}
 		else if ( EASY_SDK_VIDEO_FRAME_P == _frameInfo->type )
 		{
-			printf("Get P H264(%d * %d) Len:%d/%d/%d \ttimestamp:%u.%u\n",
+			printf("Get P H264(%d * %d) Len:%d \ttimestamp:%u.%u\n",
 					_frameInfo->width, _frameInfo->height, _frameInfo->length, 
 				   _frameInfo->timestamp_sec, _frameInfo->timestamp_usec );
 		}
