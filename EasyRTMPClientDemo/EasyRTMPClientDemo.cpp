@@ -16,7 +16,7 @@ int Easy_APICALL RTMPDataCallBack(
 								  void * userPtr, 
 								  int frameType, 
 								  char *pBuf, 
-								  RTSP_FRAME_INFO* frameInfo
+								  RTSP_FRAME_INFO* _frameInfo
 								  )									
 {
 	int ret = 0;
@@ -25,7 +25,7 @@ int Easy_APICALL RTMPDataCallBack(
 	{
 		if ( NULL == g_video )
 		{
-			if ( EASY_SDK_VIDEO_CODEC_H264 == frameInfo->codec )
+			if ( EASY_SDK_VIDEO_CODEC_H264 == _frameInfo->codec )
 			{
 				g_video = fopen( "EasyRTMPClient.h264", "wb" );
 			}
@@ -35,31 +35,58 @@ int Easy_APICALL RTMPDataCallBack(
 			}
 		}
 		
-		if ( EASY_SDK_VIDEO_FRAME_I == frameInfo->type )
+		if ( EASY_SDK_VIDEO_FRAME_I == _frameInfo->type )
 		{
-			printf( "sps+pps+iframe \r\n" );
+			char sps[2048] = { 0 };
+			char pps[2048] = { 0 };
+			char* IFrame = NULL;
+			unsigned int spsLen,ppsLen,iFrameLen = 0;
+
+			spsLen = _frameInfo->reserved1;							// SPS数据长度
+			ppsLen = _frameInfo->reserved2 - _frameInfo->reserved1;	// PPS数据长度
+			iFrameLen = _frameInfo->length - spsLen - ppsLen;		// IDR数据长度
+
+			memcpy(sps, pBuf, spsLen);			//SPS数据，包含00 00 00 01
+			memcpy(pps, pBuf+spsLen, ppsLen);	//PPS数据，包含00 00 00 01
+			IFrame = pBuf + spsLen + ppsLen;	//IDR数据，包含00 00 00 01
+
+			printf("Get I H264(%d * %d) SPS/PPS/IDR Len:%d/%d/%d \ttimestamp:%u.%u\n",
+				   _frameInfo->width, _frameInfo->height, spsLen, ppsLen, iFrameLen, 
+				   _frameInfo->timestamp_sec, _frameInfo->timestamp_usec );
+		}
+		else if ( EASY_SDK_VIDEO_FRAME_P == _frameInfo->type )
+		{
+			printf("Get P H264(%d * %d) Len:%d/%d/%d \ttimestamp:%u.%u\n",
+					_frameInfo->width, _frameInfo->height, _frameInfo->length, 
+				   _frameInfo->timestamp_sec, _frameInfo->timestamp_usec );
 		}
 
-		fwrite( pBuf, 1, frameInfo->length, g_video ); 
+		fwrite( pBuf, 1, _frameInfo->length, g_video ); 
 	}
 	else if ( EASY_SDK_AUDIO_FRAME_FLAG == frameType )
 	{
 		if ( NULL == g_audio )
 		{
-			if ( EASY_SDK_AUDIO_CODEC_AAC == frameInfo->codec )
+			if ( EASY_SDK_AUDIO_CODEC_AAC == _frameInfo->codec )
 			{
 				g_audio = fopen( "EasyRTMPClient.aac", "wb" );
 			}
-			else if ( EASY_SDK_AUDIO_CODEC_MP3 == frameInfo->codec )
+			else if ( EASY_SDK_AUDIO_CODEC_MP3 == _frameInfo->codec )
 			{
 				g_audio = fopen( "EasyRTMPClient.mp3", "wb" );
+
 			}
 			else
 			{
 				return -1;
 			}
 		}
-		ret = fwrite( pBuf, 1, frameInfo->length, g_audio ); 
+	
+		printf("Get %s Len:%d \ttimestamp:%u.%u\n", 
+			EASY_SDK_AUDIO_CODEC_AAC == _frameInfo->codec ? "AAC" : "MP3",
+			_frameInfo->length, _frameInfo->timestamp_sec, _frameInfo->timestamp_usec );
+
+		ret = fwrite( pBuf, 1, _frameInfo->length, g_audio ); 
 	}
 	else if ( EASY_SDK_EVENT_FRAME_FLAG == frameType )
 	{
@@ -80,6 +107,10 @@ int Easy_APICALL RTMPDataCallBack(
 			   EasyRTMP_GetErrCode( userPtr ), 
 			   NULL == pBuf ? "unknow" : pBuf 
 			   );
+	}
+	else if ( EASY_SDK_LOG_FRAME_FLAG == frameType )
+	{
+		printf( "%s \r\n", pBuf );
 	}
 
 	return ret;

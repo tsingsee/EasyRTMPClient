@@ -53,6 +53,7 @@ typedef int (Easy_APICALL *RTMPSourceCallBack)(
 #define RTMPSourceCallBack                    RTSPSourceCallBack
 #define Easy_RTMP_Handle                      void *
 #define EASY_SDK_AUDIO_CODEC_MP3              2
+#define EASY_SDK_LOG_FRAME_FLAG               0x00000040       
 
 typedef enum
 {

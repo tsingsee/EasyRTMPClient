@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="EasyRTMPClientDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
