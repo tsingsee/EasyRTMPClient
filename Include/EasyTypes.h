@@ -1,5 +1,5 @@
 /*
-	Copyright (c) 2013-2015 EasyDarwin.ORG.  All rights reserved.
+	Copyright (c) 2012-2018 EasyDarwin.ORG.  All rights reserved.
 	Github: https://github.com/EasyDarwin
 	WEChat: EasyDarwin
 	Website: http://www.easydarwin.org
@@ -121,14 +121,14 @@ typedef struct __EASY_MEDIA_INFO_T
 	Easy_U32 u32AudioChannel;			/* 音频通道数 */
 	Easy_U32 u32AudioBitsPerSample;		/* 音频采样精度 */
 
-	Easy_U32 u32VpsLength;				/* 视频Vps帧长度 */
-	Easy_U32 u32SpsLength;				/* 视频Sps帧长度 */
-	Easy_U32 u32PpsLength;				/* 视频Pps帧长度 */
-	Easy_U32 u32SeiLength;				/* 视频Sei帧长度 */
-	Easy_U8	 u8Vps[255];				/* 视频Vps帧内容 */
-	Easy_U8	 u8Sps[255];				/* 视频Sps帧内容 */
-	Easy_U8	 u8Pps[128];				/* 视频Pps帧内容 */
-	Easy_U8	 u8Sei[128];				/* 视频Sei帧内容 */
+	Easy_U32 u32VpsLength;
+	Easy_U32 u32SpsLength;
+	Easy_U32 u32PpsLength;
+	Easy_U32 u32SeiLength;
+	Easy_U8	 u8Vps[255];
+	Easy_U8	 u8Sps[255];
+	Easy_U8	 u8Pps[128];
+	Easy_U8	 u8Sei[128];
 }EASY_MEDIA_INFO_T;
 
 /* 帧信息 */
@@ -151,10 +151,9 @@ typedef struct
 	unsigned int	length;				/* 音视频帧大小 */
 	unsigned int    timestamp_usec;		/* 时间戳,微妙 */
 	unsigned int	timestamp_sec;		/* 时间戳 秒 */
-	//unsigned int    timestamp_ms;       /* 时间戳 毫秒 */
 	
 	float			bitrate;			/* 比特率 */
 	float			losspacket;			/* 丢包率 */
-}RTSP_FRAME_INFO;
+}EASY_FRAME_INFO;
 
 #endif

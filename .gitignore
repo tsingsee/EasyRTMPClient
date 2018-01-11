@@ -35,7 +35,9 @@ _ReSharper*/
 ipch/
 *.opensdf
 /build/
-*.VC.db
+*.pcmu
+*.pcma
 *.aac
 *.h264
-*.exe
+*.h265
+*.mpeg4
