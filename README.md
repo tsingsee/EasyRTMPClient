@@ -1,6 +1,8 @@
-# EasyRTSPClient SDK #
+# EasyRTMPClient #
 
-EasyRTMPClient是EasyDarwin流媒体团队开发、提供的一套非常稳定、易用、支持重连的RTMPClient工具，SDK形式提供，全平台支持（包括Windows/Linux 32&64，ARM各平台，Android，iOS），接口简单且成熟稳定！
+EasyRTMPClient拉流功能组件是[紫鲸团队](http://www.pvale.com "紫鲸云")开发和维护的一套非常稳定、易用、支持重连的RTMPClient工具，以SDK的形式提供，全平台支持（包括Windows/Linux 32&64，Android，iOS，ARM各平台），接口简单、兼容性强、且成熟稳定！
+
+> 有了librtmp为什么还要做EasyRTMPClient？主要还是可集成的程度问题，EasyRTMPClient能清晰地回调出帧率、时间戳、首帧是否为I帧、ES数据流、能保存ES进行分析，一直都是围绕着“Easy”来进行架构和设计，能最接近现实项目中的应用需求！
 
 ## 调用示例 ##
 
@@ -25,7 +27,7 @@ EasyRTMPClient是EasyDarwin流媒体团队开发、提供的一套非常稳定�
 		For example: EasyRTMPClient.exe -d rtmp://live.hkstv.hk.lxdns.com/live/hks -s yes
 		--------------------------------------------------------------
 
-- **EasyPlayer-RTMP调用**：[EasyPlayer-RTMP](https://github.com/EasyDSS/EasyPlayer-RTMP "EasyPlayer-RTMP")是由EasyDarwin团队开发和维护的一个RTMP专用播放器项目，目前支持Windows、Android平台，iOS平台，EasyRTMPClient作为其RTMP部分组件，为EasyPlayer-RTMP提供稳定可靠、高兼容性的数据连接；
+- **EasyPlayer-RTMP调用**：[EasyPlayer-RTMP](https://github.com/EasyDSS/EasyPlayer-RTMP "EasyPlayer-RTMP")是由**紫鲸团队**开发和维护的一个RTMP专用播放器项目，目前支持Windows、Android平台、iOS平台，EasyRTMPClient作为其RTMP部分功能组件，为EasyPlayer-RTMP提供稳定可靠、高兼容性的数据连接；
 
 		
 ## 调用流程 ##
@@ -67,9 +69,9 @@ EASY\_SDK\_AUDIO\_FRAME\_FLAG数据可支持多种音频格式：
 
 - Tel：13718530929
 
-- QQ交流群：[544917793](http://jq.qq.com/?_wv=1027&k=2IDkJId "EasyPlayer")
+- QQ交流群：<a href="http://jq.qq.com/?_wv=1027&k=2IDkJId" title="EasyPlayer" target="_blank">**544917793**</a>
 
-> **我们同时提供Windows、Linux、ARM、Android、iOS版本的EasyRTMPClient库**：EasyRTMPClient SDK商业使用需要经过授权才能永久使用，商业授权方案可以通过以上渠道进行更深入的技术与合作咨询；
+> **我们同时提供Windows、Linux、Android、iOS、ARM版本的EasyRTMPClient库**：EasyRTMPClient SDK商业使用需要经过授权才能永久使用，商业授权方案可以通过以上渠道进行更深入的技术与合作咨询；
 
 
 ## 获取更多信息 ##
