@@ -2,7 +2,7 @@
 
 EasyRTMPClient拉流功能组件是[紫鲸团队](http://www.pvale.com "紫鲸云")开发和维护的一套非常稳定、易用、支持重连的RTMPClient工具，以SDK的形式提供，全平台支持（包括Windows/Linux 32&64，Android，iOS，ARM各平台），接口简单、兼容性强、且成熟稳定！
 
-> 有了librtmp为什么还要做EasyRTMPClient？主要还是可集成的程度问题，EasyRTMPClient能清晰地回调出帧率、时间戳、首帧是否为I帧、ES数据流、能保存ES进行分析，一直都是围绕着“Easy”来进行架构和设计，能最接近现实项目中的应用需求！
+> 有了librtmp为什么还要做EasyRTMPClient？主要还是可集成的程度问题，EasyRTMPClient能清晰地回调出帧率、时间戳、首帧是否为I帧、ES数据流、能保存ES进行分析，一直都是围绕着“Easy”来进行架构和设计，能最接近现实项目中的应用需求，更重要的是EasyRTMPClient会扩展RTMP H.265支持！
 
 ## 调用示例 ##
 
