@@ -67,8 +67,6 @@ EASY\_SDK\_AUDIO\_FRAME\_FLAG数据可支持多种音频格式：
 
 - 邮件：[support@easydarwin.org](mailto:support@easydarwin.org) 
 
-- Tel：13718530929
-
 - QQ交流群：<a href="http://jq.qq.com/?_wv=1027&k=2IDkJId" title="EasyPlayer" target="_blank">**544917793**</a>
 
 > **我们同时提供Windows、Linux、Android、iOS、ARM版本的EasyRTMPClient库**：EasyRTMPClient SDK商业使用需要经过授权才能永久使用，商业授权方案可以通过以上渠道进行更深入的技术与合作咨询；
