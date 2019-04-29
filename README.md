@@ -1,6 +1,6 @@
 # EasyRTMPClient v3.0 #
 
-EasyRTMPClient功能组件是[TSINGSEE青犀](http://www.tsingsee.com/ "TSINGSEE青犀")开放平台开发和维护的一套非常稳定、易用、支持重连的RTMPClient工具，以SDK的形式提供，全平台支持（包括Windows/Linux 32&64，Android，iOS，ARM各平台），接口简单、兼容性强、且成熟稳定！
+EasyRTMPClient功能组件是[TSINGSEE青犀开放平台](http://www.tsingsee.com/ "TSINGSEE青犀")开发和维护的一套非常稳定、易用、支持重连的RTMPClient工具，以SDK的形式提供，全平台支持（包括Windows/Linux 32&64，Android，iOS，ARM各平台），接口简单、兼容性强、且成熟稳定！
 
 > 有了librtmp为什么还要做EasyRTMPClient？主要还是可集成的程度问题，EasyRTMPClient能清晰地回调出帧率、时间戳、首帧是否为I帧、ES数据流、能保存ES进行分析，一直都是围绕着“Easy”来进行架构和设计，能最接近现实项目中的应用需求，更重要的是EasyRTMPClient扩展了RTMP H.265支持！
 
@@ -75,6 +75,6 @@ EASY\_SDK\_AUDIO\_FRAME\_FLAG数据可支持多种音频格式：
 
 ## 获取更多信息 ##
 
-TSINGSEE青犀开放平台：[www.tsingsee.com](http://www.tsingsee.com "TSINGSEE青犀")
+TSINGSEE青犀开放平台：[http://open.tsingsee.com](http://open.tsingsee.com "TSINGSEE青犀开放平台")
 
 Copyright &copy; TSINGSEE.com 2012~2019
