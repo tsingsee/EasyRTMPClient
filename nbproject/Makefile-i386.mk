@@ -52,7 +52,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-LLib/${CND_CONF}
+LDLIBSOPTIONS=-LLib/x86
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
