@@ -65,7 +65,7 @@ EASY\_SDK\_AUDIO\_FRAME\_FLAG数据可支持多种音频格式：
 
 ## 技术支持 ##
 
-- 邮件：[support@easydarwin.org](mailto:support@easydarwin.org) 
+- 邮件：[support@tsingsee.com](mailto:support@tsingsee.com) 
 
 - QQ交流群：<a href="http://jq.qq.com/?_wv=1027&k=2IDkJId" title="EasyPlayer" target="_blank">**544917793**</a>
 
@@ -77,4 +77,4 @@ EASY\_SDK\_AUDIO\_FRAME\_FLAG数据可支持多种音频格式：
 
 TSINGSEE青犀开放平台：[http://open.tsingsee.com](http://open.tsingsee.com "TSINGSEE青犀开放平台")
 
-Copyright &copy; TSINGSEE.com 2012~2019
+Copyright &copy; TSINGSEE.com 2012~2020
